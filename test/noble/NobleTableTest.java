@@ -27,44 +27,46 @@ public class NobleTableTest {
       assertThat((instance instanceof NobleTable), is(true));
     }
 
-  public static class カードを置く{
-    private NobleTable _table;
-    @Test
-    public void put() throws Exception{
-      Card [] cards = new Card []{
-        new Card(Card.SUIT_CLUB, 5)
-      };
-      _table.putCard(cards);
+    public static class カードを置く{
+      private NobleTable _table;
+      @Test
+      public void put() throws Exception{
+        Card [] cards = new Card []{
+          new Card(Card.SUIT_CLUB, 5)
+        };
+        _table.putCard(cards);
+        assertThat(cards,is(5));
+      }
     }
-  }
 
-  public static class カードを見る{
-    private NobleTable _table;
-    @Test
-    public void put() throws Exception{
-      Card [] card1 = new Card []{
-        new Card(Card.SUIT_CLUB, 5)
-      };
+    public static class カードを見る{
+      private NobleTable _table;
+      @Test
+      public void put() throws Exception{
+        Card [] card1 = new Card []{
+          new Card(Card.SUIT_CLUB, 5)
+        };
 
-      _table.putCard(card1);
-      _table.getCards();
+        _table.putCard(card1);
+        Card [][] b= _table.getCards();
+        assertThat(card1,is(b));
+      }
     }
-  }
 
 
-  public static class toStringtest{
-    private NobleTable _table;
-    @Test
-    public void put() throws Exception{
-      Card [] card1 = new Card []{
-        new Card(Card.SUIT_CLUB, 5)
-      };
+    public static class toStringtest{
+      private NobleTable _table;
+      @Test
+      public void put() throws Exception{
+        Card [] card1 = new Card []{
+          new Card(Card.SUIT_CLUB, 5)
+        };
 
-      _table.putCard(card1);
-      _table.getCards();
-      _table.toString();
+        _table.putCard(card1);
+        _table.getCards();
+        _table.toString();
+      }
     }
-  }
 
 
 
