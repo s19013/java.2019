@@ -50,6 +50,24 @@ public class NobleTableTest {
       _table.getCards();
     }
   }
+
+
+  public static class toStringtest{
+    private NobleTable _table;
+    @Test
+    public void put() throws Exception{
+      Card [] card1 = new Card []{
+        new Card(Card.SUIT_CLUB, 5)
+      };
+
+      _table.putCard(card1);
+      _table.getCards();
+      _table.toString();
+    }
+  }
+
+
+
   }
 
 
