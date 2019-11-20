@@ -54,7 +54,7 @@ public class NoblePlayer extends Player {
       // 手札がなくなったら、上がりを宣言する
       if (myHand_.getNumberofCards() == 0) {
         master_.declareWin(this);
-      } 
+      }
     } else {
       // テーブルに出せるカードがなかった場合、パスする
       ((NobleMaster)master_).pass(this);

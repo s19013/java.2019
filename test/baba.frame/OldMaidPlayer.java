@@ -49,7 +49,7 @@ public class OldMaidPlayer extends Player {
         // 引いた結果を表示
         System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + " を引きました");
 
-        // 引いたカードを手札に加え、同じ数のカードがあったらすてる 
+        // 引いたカードを手札に加え、同じ数のカードがあったらすてる
         dealCard(pickedCard);
 
         // 手札がゼロになったかどうか調べる
@@ -90,7 +90,7 @@ public class OldMaidPlayer extends Player {
         super.receiveCard(card);
 
         // 今加えたカードと同じカードを探す
-        Card[] cards = rule_.findCandidate(myHand_, table_); 
+        Card[] cards = rule_.findCandidate(myHand_, table_);
 
         // 同じカードの組み合わせがそんざいした場合
         if (cards != null) {
