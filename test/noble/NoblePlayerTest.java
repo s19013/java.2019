@@ -92,6 +92,37 @@ public class NoblePlayerTest {
     }
 
   }
+  public static class 上がり{
+    private NobleMaster _master;
+    private NobleTable _table;
+    private NobleRule _rule;
+    @Before
+    public void setUp() throws Exception {
+      _master = new NobleMaster();
+      _table = new NobleTable();
+      Card [] cards = new Card []{
+        new Card(Card.SUIT_CLUB, 5)
+      };
+      _table.putCard(cards);
+      _rule = new NobleRule();
+    }
+
+    @Test
+    public void テーブルに出せる() throws Exception {
+      NoblePlayer p1 = new NoblePlayer("太郎1", _master, _table, _rule);
+      p1.receiveCard(new Card(Card.SUIT_CLUB, 1));
+
+      NoblePlayer p2 = new NoblePlayer("太郎", _master, _table, _rule);
+      p2.receiveCard(new Card(Card.SUIT_CLUB, 1));
+      _master.registerPlayer(p1);
+      _master.registerPlayer(p2);
+
+
+
+      p1.play(p2);
+    }
+  }
+
 
 
 
