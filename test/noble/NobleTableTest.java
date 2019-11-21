@@ -28,8 +28,8 @@ public class NobleTableTest {
     }
 
     public static class カードを置く_見る{
-      @Before
       private NobleTable _table;
+      @Before
       public void setUp() throws Exception {
       }
 

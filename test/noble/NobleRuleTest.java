@@ -11,6 +11,7 @@ import trump.Card;
 import trump.Master;
 import trump.Hand;
 import trump.Joker;
+
 @RunWith(Enclosed.class)
 public class NobleRuleTest {
 
@@ -30,22 +31,42 @@ public class NobleRuleTest {
 
   public static class カードを探す{
     private Hand _hand;
-    private OldMaidTable _table;
-    private OldMaidRule _rule;
+    private NobleTable _table;
+    private NobleRule _rule;
+    private NobleMaster _master;
 
-
-    @Before public void setUp() throws Exception{
-      NoblePlayer p1 = new NoblePlayer("太郎1", _master, _table, _rule);
-      p1.receiveCard(new Card(Card.SUIT_SPADE, 5));
-      Card [] cards = new Card(Card.SUIT_SPADE, 4);
+    @Before
+    public void setUp() throws Exception {
+      _master = new NobleMaster();
+      _table = new NobleTable();
+      Card [] cards = new Card []{
+        new Card(Card.SUIT_CLUB, 5)
+      };
       _table.putCard(cards);
+      _rule = new NobleRule();
+    }
 
+    @Test
+    public void test() throws Exception{
+      NoblePlayer p1 = new NoblePlayer("太郎1", _master, _table, _rule);
+      p1.receiveCard(new Card(Card.SUIT_CLUB, 1));
+      p1.receiveCard(new Card(Card.SUIT_CLUB, 3));
+      NoblePlayer p2 = new NoblePlayer("太郎", _master, _table, _rule);
+
+      p1.play(p2);
+      _table.getCards();
+      String A = _table.toString();
+
+      assertThat(A,is("CA \n"));
 
     }
 
   }
 
-  public static void main(String[] args){
+
+
+	// エントリーポイント
+	public static void main(String[] args){
 		org.junit.runner.JUnitCore.main(NobleRuleTest.class.getName());
 	}
 }
