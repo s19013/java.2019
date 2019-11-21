@@ -62,6 +62,10 @@ public class NoblePlayerTest {
       NoblePlayer p2 = new NoblePlayer("太郎", _master, _table, _rule);
 
       p1.play(p2);
+      _table.getCards();
+      String A = _table.toString();
+
+      assertThat(A,is("CA \n"));
     }
   }
 
@@ -89,6 +93,9 @@ public class NoblePlayerTest {
       NoblePlayer p2 = new NoblePlayer("太郎", _master, _table, _rule);
 
       p1.play(p2);
+      int A = p1.getnoc();
+      assertThat(A,is(1));
+
     }
 
   }
@@ -117,9 +124,9 @@ public class NoblePlayerTest {
       _master.registerPlayer(p1);
       _master.registerPlayer(p2);
 
-
-
       p1.play(p2);
+      int A = _master.gnop();
+      assertThat(A,is(1));
     }
   }
 

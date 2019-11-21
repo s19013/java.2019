@@ -60,4 +60,10 @@ public class NoblePlayer extends Player {
       ((NobleMaster)master_).pass(this);
     }
   }
+// 無理やり作る
+  public int getnoc()
+  {
+    return myHand_.getNumberofCards();
+  }
+
 }

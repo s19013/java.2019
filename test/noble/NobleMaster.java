@@ -45,4 +45,10 @@ public class NobleMaster extends Master {
     passPlayers.clear();
     isContinueGame = true;
   }
+
+  public int gnop()
+  {
+    return players_.size();
+  }
+
 }
