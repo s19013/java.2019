@@ -69,10 +69,11 @@ class Ex7{
 	}
 
 	public String ex7_3(byte x){
-		String oct = Integer.toOctalString( x );
-		// String ret = x;
-
-		return oct;
+		String s = String.valueOf(x);
+		final String oct = s;
+		final int dec = Integer.parseInt(oct, 10);
+		final String bin = Integer.toBinaryString(dec);
+		return bin;
 	}
 
 	public String ex7_3(short x){
@@ -83,7 +84,6 @@ class Ex7{
 	}
 
 	public String ex7_3(int x){
-
 		String ret = "";
 
 		return ret;

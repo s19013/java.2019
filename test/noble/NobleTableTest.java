@@ -26,62 +26,39 @@ public class NobleTableTest {
       NobleTable instance = new NobleTable();
       assertThat((instance instanceof NobleTable), is(true));
     }
-
-    public static class カードを置く_見る{
-      private NobleTable _table;
-      @Before
-      public void setUp() throws Exception {
-      }
-
-      @Test
-      public void putAndGet() throws Exception{
-        Card [] cards = new Card []{
-          new Card(Card.SUIT_CLUB, 5)
-        };
-        _table.putCard(cards);
-
-        // assertThat(cards,is(5));
-        Card [][] b= _table.getCards();
-        assertThat(b,is(5));
-
-      }
-    }
-
-    // public static class カードを見る{
-    //   private NobleTable _table;
-    //   @Test
-    //   public void put() throws Exception{
-    //     Card [] card1 = new Card []{
-    //       new Card(Card.SUIT_CLUB, 5)
-    //     };
-    //
-    //     _table.putCard(card1);
-    //   }
-    // }
-
-
-    public static class toStringtest{
-      private NobleTable _table;
-      @Before
-      public void setUp() throws Exception {
-      }
-
-      @Test
-      public void put() throws Exception{
-        Card [] card1 = new Card []{
-          new Card(Card.SUIT_CLUB, 5)
-        };
-
-        _table.putCard(card1);
-        _table.getCards();
-        String A = _table.toString();
-      assertThat(A,is("C5"));
-      }
-    }
-
-
-
   }
+
+  public static class カードを置く_見る{
+    private NobleTable _table;
+    @Test
+    public void putAndGet() throws Exception{
+      Card [] cards = new Card []{
+        new Card(Card.SUIT_CLUB, 5)
+      };
+      _table.putCard(cards);
+      // assertThat(cards,is(5));
+      Card [][] b= _table.getCards();
+      assertThat(b,is(5));
+    }
+  }
+
+  public static class toStringtest{
+    private NobleTable _table;
+    @Test
+    public void put() throws Exception{
+      Card [] card1 = new Card []{
+        new Card(Card.SUIT_CLUB, 5)
+      };
+      _table.putCard(card1);
+      _table.getCards();
+      String A = _table.toString();
+    assertThat(A,is("C5"));
+    }
+  }
+
+
+
+
 
 
 

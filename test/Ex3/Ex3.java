@@ -1,3 +1,9 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 class Ex3{
 
 	public String ex3_0(int n){
@@ -107,15 +113,7 @@ class Ex3{
 	}
 
 	public double ex3_8(double a, double b){
-		if (a > b) {
-			return a;
-		}
-		else if (a < b) {
-			return b;
-		}
-		else {
-			return  0;
-		}
+		return Math.max(a, b);
 	}
 
 	public int ex3_9(int a, int b){
@@ -133,16 +131,14 @@ class Ex3{
 	}
 
 	public int ex3_11(int a, int b, int c){
-		if (a<=b && a<=c) {
-			return a;
+		ArrayList<Integer> data = new ArrayList<Integer>();
+		int min = c;
+		data.add(a);
+		data.add(b);
+		for(int i = 0; i < data.size(); i++){
+			min = Math.min(min,data.get(i));
 		}
-		else if (b<=a && b<=c) {
-			return b;
-		}
-		else {
-			return c;
-		}
-
+		return min;
 	}
 
 	public int ex3_12(int a, int b, int c){
