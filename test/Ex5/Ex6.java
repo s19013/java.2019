@@ -66,7 +66,7 @@ class Ex6{
       //   b[i] = a[i] ;
       // }
       // ArrayList list = new ArrayList(Arrays.asList(a));
-      ArrayList<Integer> list =new ArrayList();
+      ArrayList<Integer> list =new ArrayList<Integer>();
       for (int i = 0;i<a.length ;i++) {
         list.add(a[i]);
       }
@@ -76,7 +76,7 @@ class Ex6{
     }
 
     public int ex6_6(int [] a, int key){
-      ArrayList<Integer> list =new ArrayList();
+      ArrayList<Integer> list =new ArrayList<Integer>();
       for (int i = 0;i<a.length ;i++) {
         list.add(a[i]);
       }
@@ -102,7 +102,16 @@ class Ex6{
       for (int i = 0;i<a.length ;i++) {
         list.add(a[i]);
       }
-      list.subList(idx, n+1).clear();;
+      if (idx == n) {
+        int [] ret = new int[list.size()];
+        for (int i = 0 ;i<list.size();i++){
+          ret[i]=list.get(i);
+        }
+          return ret;
+      }
+      else {
+        list.subList(idx, n+idx).clear();;
+      }
       // for (int i=idx;i<n;i++) {
       //   list.remove(i);
       // }
@@ -115,49 +124,132 @@ class Ex6{
     }
 
     public int [] ex6_9(int [] a, int idx, int x){
+      ArrayList<Integer> list =new ArrayList<Integer>();
+      for (int i = 0;i<a.length ;i++) {
+        list.add(a[i]);
+      }
 
-        int [] ret = new int[1];
-
+      list.add(idx,x);
+      int [] ret = new int[list.size()];
+      for (int i = 0 ;i<list.size();i++){
+        ret[i]=list.get(i);
+      }
         return ret;
     }
 
     public void ex6_10(int [] a, int [] b){
+      int[] ea = new int[a.length];
+      int[] eb = new int[b.length];
+      int min = Math.min(a.length,b.length);
+      for (int i=0;i<min;i++ ) {
+        ea[i]=b[i];
+      }
+      for (int i=0;i<min;i++ ) {
+        eb[i]=a[i];
+      }
+      for (int i=min;i<a.length ;i++ ) {
+        ea[i]=a[i];
+      }
+      for (int i=min;i<b.length ;i++ ) {
+        eb[i]=b[i];
+      }
 
-        return;
+      for (int i=0;i<ea.length ;i++ ) {
+        a[i]=ea[i];
+      }
+      for (int i=0;i<eb.length ;i++ ) {
+        b[i]=eb[i];
+      }
     }
 
     public int [] ex6_11(int [] a){
 
-        int [] ret = new int[0];
+        int [] ret =a.clone();
 
         return ret;
     }
 
     public int [] ex6_12(int [] a, int x){
+      ArrayList<Integer> ea =new ArrayList<Integer>();
+      ArrayList<Integer> list =new ArrayList<Integer>();
+      // int result = 0;
+      for (int i = 0;i<a.length ;i++) {
+        ea.add(a[i]);
+      }
+      for (int i = 0; i < ea.size(); i++) {
+        if (ea.get(i) == x) {
+          list.add(i);
+        }
+          }
+      int [] ret = new int[list.size()];
+      for (int i = 0 ;i<list.size();i++){
+        ret[i]=list.get(i);
+      }
 
-        int [] ret = new int[0];
-
-        return ret;
-    }
+      return ret;
+  }
 
     public int [] ex6_13(int [] a, int idx){
+      ArrayList<Integer> list =new ArrayList<Integer>();
+      for (int i = 0;i<a.length ;i++) {
+        list.add(a[i]);
+      }
+      if (idx>0 && idx!=0 && idx != a.length) {
+        list.remove(idx);
+      }
 
-        int [] ret = new int[0];
+      int [] ret = new int[list.size()];
+      for (int i = 0 ;i<list.size();i++){
+        ret[i]=list.get(i);
+      }
 
-        return ret;
+      return ret;
     }
 
     public int [] ex6_14(int [] a, int idx, int n){
+      ArrayList<Integer> list =new ArrayList<Integer>();
+      for (int i = 0;i<a.length ;i++) {
+        list.add(a[i]);
+      }
+      if (idx < 0 || n < 0 || idx > n) {
+        int [] ret = new int[list.size()];
+        for (int i = 0 ;i<list.size();i++){
+          ret[i]=list.get(i);
+        }
+          return ret;
+      }
+      else {
+        if (n>a.length) {
+          n = a.length;
+        }
+        list.subList(idx, n+idx).clear();;
+      }
 
-        int [] ret = new int[0];
+      int [] ret = new int[list.size()];
+      for (int i = 0 ;i<list.size();i++){
+        ret[i]=list.get(i);
+      }
 
         return ret;
     }
 
     public int [] ex6_15(int [] a, int idx, int x){
+      ArrayList<Integer> list =new ArrayList<Integer>();
+      for (int i = 0;i<a.length ;i++) {
+        list.add(a[i]);
+      }
 
-        int [] ret = new int[0];
+      if (idx < 0) {
+        list.add(0,x);
+      }
+      else {
+        list.add(idx, x);
+      }
 
+      int [] ret = new int[list.size()];
+      for (int i = 0 ;i<list.size();i++){
+        ret[i]=list.get(i);
+      }
         return ret;
     }
 }

@@ -28,33 +28,43 @@ public class NobleTableTest {
     }
   }
 
-  public static class カードを置く_見る{
+  public static class カードを置く_見る_tostring{
     private NobleTable _table;
+    private NobleRule _rule;
+    @Before
+    public void setUp() throws Exception {
+      _table = new NobleTable();
+      _rule = new NobleRule();
+    }
+
+
     @Test
     public void putAndGet() throws Exception{
       Card [] cards = new Card []{
         new Card(Card.SUIT_CLUB, 5)
       };
       _table.putCard(cards);
+      _table.getCards();
+      String A = _table.toString();
+
       // assertThat(cards,is(5));
-      Card [][] b= _table.getCards();
-      assertThat(b,is(5));
+      assertThat(A,is("C5 \n"));
     }
   }
 
-  public static class toStringtest{
-    private NobleTable _table;
-    @Test
-    public void put() throws Exception{
-      Card [] card1 = new Card []{
-        new Card(Card.SUIT_CLUB, 5)
-      };
-      _table.putCard(card1);
-      _table.getCards();
-      String A = _table.toString();
-    assertThat(A,is("C5"));
-    }
-  }
+  // public static class toStringtest{
+  //   private NobleTable _table;
+  //   @Test
+  //   public void put() throws Exception{
+  //     Card [] card1 = new Card []{
+  //       new Card(Card.SUIT_CLUB, 5)
+  //     };
+  //     _table.putCard(card1);
+  //     _table.getCards();
+  //     String A = _table.toString();
+  //   assertThat(A,is("C5"));
+  //   }
+  // }
 
 
 
