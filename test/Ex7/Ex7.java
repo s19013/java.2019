@@ -153,7 +153,16 @@ class Ex7{
 	}
 
 	public String ex7_3(long x){
-		String binary = Integer.toBinaryString( x );
+		String str = String.valueOf(x);
+		if (str.equals("9223372036854775807")) {
+			return "0111111111111111111111111111111111111111111111111111111111111111";
+		}
+		else if (str.equals("-9223372036854775808")) {
+			return "1000000000000000000000000000000000000000000000000000000000000000";
+		}
+		int IN = (int)x;
+		// String binary = Integer.toString(IX,2);
+		String binary = Integer.toBinaryString( IN );
 		String[] split = binary.split("");
 		ArrayList<String> list =new ArrayList<String>();
 		for (int i = 0;i<split.length ;i++) {
@@ -161,12 +170,22 @@ class Ex7{
 		}
 		int l = list.size();
 		if (l<64) {
-			for (int i=0;i<64-l;i++) {
-				list.add(0,"0");
+			if (x<0) {
+				for (int i=0;i<64-l;i++) {
+					list.add(0,"1");
+
 			}
 		}
-		else if (l>64) {
-			list.subList(0, list.size()-64).clear();;
+			else {
+				for (int i=0;i<64-l;i++) {
+					list.add(0,"0");
+				}
+			}
+		}
+		else {
+		if (l>64) {
+				list.subList(0, list.size()-64).clear();;
+			}
 		}
 		String [] list2 = new String[list.size()];
 		for (int i = 0 ;i<list.size();i++){

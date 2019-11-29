@@ -375,6 +375,7 @@ public class Ex7Test {
 	public void ex7_3_18(){
 		Ex7 ex7 = new Ex7();
 		long x = 9223372036854775807L;
+		// max手前
 		String expected = "0111111111111111111111111111111111111111111111111111111111111111";
 		String actual = ex7.ex7_3(x);
 		assertThat(actual, is(expected));
@@ -383,6 +384,7 @@ public class Ex7Test {
 	public void ex7_3_19(){
 		Ex7 ex7 = new Ex7();
 		long x = -9223372036854775808L;
+		// min手前
 		String expected = "1000000000000000000000000000000000000000000000000000000000000000";
 		String actual = ex7.ex7_3(x);
 		assertThat(actual, is(expected));
